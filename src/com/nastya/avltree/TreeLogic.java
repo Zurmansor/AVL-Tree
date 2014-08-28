@@ -5,6 +5,7 @@ public class TreeLogic {
 	private static Tree tree = null;
 	private static int added;
 	private static int removed;
+	private static int degenerated;
 
 	public static Tree getTree() {
 		return tree;
@@ -22,9 +23,18 @@ public class TreeLogic {
 		return removed;
 	}
 	
+	public static void setDegenerated(int val) {
+		degenerated = val;
+	}
+	
+	public static int getDegenerated() {
+		return degenerated;
+	}
+	
 	public static void setRemoved(int val) {
 		removed = val;
 	}
+	
 
 	public void addNode (int value) {
 		System.out.println(value);

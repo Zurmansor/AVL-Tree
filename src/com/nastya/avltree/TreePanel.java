@@ -54,13 +54,16 @@ public class TreePanel extends JPanel{
 			g2.setColor(Param.COLOR_LINE);
 			g2.drawLine(parent.getX()+Param.DIAMETR/2, parent.getY()+Param.DIAMETR-1, localTree.getX() + 17, localTree.getY() + 17);
 		}
+		
 		g2.setColor(Param.COLOR_NODE);
 		if (localTree.getValue() == TreeLogic.getAdded()) {
 			g2.setColor(Param.COLOR_ADDED);
 		} 
 		if (localTree.getValue() == TreeLogic.getRemoved()) {
-			System.out.println("COLOR_REMOVED");
 			g2.setColor(Param.COLOR_REMOVED);
+		}
+		if (localTree.getValue() == TreeLogic.getDegenerated()) {
+			g2.setColor(Param.COLOR_DEG);
 		}
 		
 		g2.fillOval(localTree.getX(), localTree.getY(), Param.DIAMETR, Param.DIAMETR);

@@ -232,12 +232,14 @@ public class UI extends JFrame{
 		Tree degTree = treeLogic.chekDeg(localTree);
 		
 		if (degTree != null){
+			TreeLogic.setDegenerated(degTree.getValue());
 			logField.setText("node " + value + " added with ...");
 			enableComponents(buttonPanel, false);
 			new java.util.Timer().schedule( 
 				new java.util.TimerTask() {
 					@Override
 					public void run() {
+						TreeLogic.setDegenerated(-1000);
 						String rotateType = treeLogic.typeOfRotation(degTree);
 						treePanel.repaint();							
 						enableComponents(buttonPanel, true);

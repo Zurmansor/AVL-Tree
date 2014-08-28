@@ -1,6 +1,7 @@
 package com.nastya.avltree;
 
 import java.awt.Color;
+import java.awt.Font;
 
 public class Param {
 	public static int WIDTH = 1200;
@@ -20,4 +21,8 @@ public class Param {
 	public static Color COLOR_REMOVED = new Color(239,219,0);
 	public static Color COLOR_LINE = new Color(0,0,0);
 	public static Color COLOR_VALUE = Color.BLACK;
+	
+	public static Font BUTTON_FONT = new Font("Tahoma", Font.PLAIN, 14);
+	public static Font NODE_FONT = new Font("Tahoma", Font.PLAIN, 14);
+	public static Font TEXT_FIELD_FONT = new Font("Tahoma", Font.PLAIN, 16);
 }

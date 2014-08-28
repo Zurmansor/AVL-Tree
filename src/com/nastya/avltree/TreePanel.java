@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.AffineTransform;
 
 import javax.swing.JPanel;
 
@@ -60,16 +62,17 @@ public class TreePanel extends JPanel{
 			System.out.println("COLOR_REMOVED");
 			g2.setColor(Param.COLOR_REMOVED);
 		}
+		
 		g2.fillOval(localTree.getX(), localTree.getY(), Param.DIAMETR, Param.DIAMETR);
 		
 		g2.setColor(Param.COLOR_VALUE);
 		if (localTree.getValue() == TreeLogic.getAdded()) {
 			g2.setColor(Color.WHITE);
 		}
-		g2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		g2.drawString(localTree.getValue() + "",localTree.getX() + 10, localTree.getY()+22);
-		
-//		g2.drawLine(parent.getX(), parent.getY(), localTree.getX(), localTree.getY());
+		g2.setFont(Param.NODE_FONT);
+		String nodeString = localTree.getValue() + "";
+		FontSize fontSize = getStringSize(nodeString);
+		g2.drawString(nodeString, localTree.getX() + (Param.DIAMETR-fontSize.getWidth())/2, localTree.getY() + 22);
 		
 		drawTree(localTree.getLeftChild());
 		drawTree(localTree.getRightChild());
@@ -81,4 +84,15 @@ public class TreePanel extends JPanel{
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		drawTree(TreeLogic.getTree());
 	}  
+	
+	private FontSize getStringSize (String str) {
+		AffineTransform affinetransform = new AffineTransform();     
+		FontRenderContext frc = new FontRenderContext(affinetransform,true,true);     
+		Font font = Param.NODE_FONT;
+		FontSize fontSize = new FontSize();
+		fontSize.setWidth((int)(font.getStringBounds(str, frc).getWidth()));
+		fontSize.setHeight((int)(font.getStringBounds(str, frc).getHeight()));
+		
+		return fontSize;
+	}
 }

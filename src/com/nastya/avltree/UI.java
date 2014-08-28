@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 public class UI extends JFrame{
 
@@ -52,6 +53,7 @@ public class UI extends JFrame{
 		logPanel = new JPanel();
 
 		logField = new JLabel("add new value, please");
+		logField.setFont(Param.BUTTON_FONT);
 		logPanel.add(logField);
 		
 		buttonPanel = new JPanel();
@@ -59,20 +61,29 @@ public class UI extends JFrame{
 
 		addButton = new JButton("Add Value");
 		addButton.setBackground(Param.COLOR_BUTT_CREATE);
+		addButton.setFont(Param.BUTTON_FONT);
 		
 		removeButton = new JButton("remove");
 		removeButton.setBackground(Param.COLOR_BUTT_REMOVE);
+		removeButton.setFont(Param.BUTTON_FONT);
 		
 		searchButton = new JButton("search");
 		searchButton.setBackground(Param.COLOR_BUTT_CREATE);
+		searchButton.setFont(Param.BUTTON_FONT);
 		
 		addRandButton = new JButton("Add Rand Value");
 		addRandButton.setBackground(Param.COLOR_BUTT_CREATE);
+		addRandButton.setFont(Param.BUTTON_FONT);
+		
+		
 		clearButton = new JButton("clear");
 		clearButton.setBackground(Param.COLOR_BUTT_CLEAR);
+		clearButton.setFont(Param.BUTTON_FONT);
 
 		valueField = new JTextField("");
 		valueField.setColumns(7);
+		valueField.setFont(Param.TEXT_FIELD_FONT);
+		valueField.setHorizontalAlignment(JTextField.CENTER);
 		
 		buttonPanel.add(valueField);
 		buttonPanel.add(addButton);
@@ -84,9 +95,9 @@ public class UI extends JFrame{
 		
 		treePanel.setBackground(Color.WHITE);
 		
-		frame.add(buttonPanel, BorderLayout.NORTH);
-		frame.add(treePanel, BorderLayout.CENTER);
-		frame.add(logPanel, BorderLayout.SOUTH);
+		frame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
+		frame.getContentPane().add(treePanel, BorderLayout.CENTER);
+		frame.getContentPane().add(logPanel, BorderLayout.SOUTH);
 
 		addEvents();
 		frame.setVisible(true);

@@ -24,7 +24,7 @@ public class UI extends JFrame{
 	//	private JButton btnAddNumber;
 	//	private JTextField textField;
 
-	//	private JButton btnCreateRandomTree;
+
 	private JButton addRandButton;
 	private TreeLogic treeLogic;
 

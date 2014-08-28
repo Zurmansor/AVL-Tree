@@ -70,7 +70,6 @@ public class TreeLogic {
 			return;
 		}
 		recalcHeight(localTree);
-		//		localTree.changeHeight(i);
 	}
 
 	public void recalcHeight (Tree localTree){
@@ -177,7 +176,6 @@ public class TreeLogic {
 	
 	private void rightRotate (Tree degTree) {
 		// right rotation
-		System.out.println("right rotate");
 		Tree leftChild = degTree.getLeftChild(),
 			 parent = degTree.getParent(),
 			 rightGrandson = leftChild.getRightChild();
@@ -212,7 +210,6 @@ public class TreeLogic {
 	}
 	
 	private void doubleRightRotate (Tree degTree) {
-		System.out.println("double right rotate");
 		
 		Tree leftChild = degTree.getLeftChild(),
 			 parent = degTree.getParent(),
@@ -257,7 +254,6 @@ public class TreeLogic {
 	}
 	
 	private void leftRotate (Tree degTree) {
-		System.out.println("left rotate");
 		// right rotation
 		Tree rightChild = degTree.getRightChild(),
 			 parent = degTree.getParent(),
@@ -282,7 +278,7 @@ public class TreeLogic {
 		}
 
 
-		//				degTree.setHeight(1);
+		//	degTree.setHeight(1);
 		Tree tmpTree = degTree; 
 		while (tmpTree != null) {
 			recalcHeight(tmpTree);
@@ -295,7 +291,6 @@ public class TreeLogic {
 	}
 	
 	private void doubleLeftRotate (Tree degTree) {
-		System.out.println("double left rotate");
 		Tree rightChild = degTree.getRightChild(),
 			 parent = degTree.getParent(),
 			 leftGrandson = rightChild.getLeftChild();
@@ -343,22 +338,6 @@ public class TreeLogic {
 	}
 	
 	
-	public void removeVertex(Tree localTree, int target) {
-		//поиск по дереву определенного эл-та и удаление его
-		
-		Tree targetNode = searchNode(localTree, target);
-		
-		if (targetNode.getLeftChild() == null && targetNode.getRightChild() == null){
-			recalcHeight(localTree);
-		}
-		if (targetNode.getLeftChild() != null && targetNode.getRightChild() == null){
-			recalcHeight(localTree);
-		}
-		targetNode = null;
-		
-	}
-	
-	
 	public void removeNode (Tree forRemove) {
 		Tree parent = forRemove.getParent();
 		Tree leftChild = forRemove.getLeftChild();
@@ -403,11 +382,4 @@ public class TreeLogic {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-
 }
